@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<view class="main">
+  <view class="header">
+    <view class="title-box">
+      <text class="hot">热点</text>
+      <text class="motion">关注</text>
+    </view>
+  </view>
+  <view class="nav">
+    <text class="{{navIndex==0?'nav-active':''}}" bindtap="changeContent" data-index="0">足球现场</text>
+    <text class="{{navIndex==1?'nav-active':''}}"bindtap="changeContent" data-index="1">足球生活</text>
+    <text class="{{navIndex==2?'nav-active':''}}"bindtap="changeContent" data-index="2">足球美女</text>
+  </view>
+  <view class="article">
+   <scroll-view style="height:100%" bindscrolltoupper="pullfresh" scroll-y="true" scroll-top="{{scrollTop}}">
+  <swiper style="height:100%" bindchange="changePages" current="{{navIndex}}">
+    <block>
+      <swiper-item>
+         <view class="content-box" wx:for="{{contentList}}" wx:key="{{index}}">
+            <view class="pic">
+              <image src="{{item.img}}"/>
+            </view>
+            <view class="pic-info">
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+      </swiper-item>
+    </block>
+    <block>
+      <swiper-item>
+         <view class="content-box" wx:for="{{contentList}}">
+            <view class="pic">
+              <image src="{{item.img}}"/>
+            </view>
+            <view class="pic-info">
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+      </swiper-item>
+    </block>
+    <block>
+      <swiper-item>
+         <view class="content-box" wx:for="{{contentList}}">
+            <view class="pic">
+              <image src="{{item.img}}"/>
+            </view>
+            <view class="pic-info">
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+      </swiper-item>
+    </block>
+  </swiper>
+   </scroll-view> 
+  </view>
+  <view class="footer">
+    <view class="footer-info">
+      <text class="iconfont icon-1"></text>
+      <text>首页</text>
+    </view>
+    <view class="footer-info">
+      <text class="iconfont icon-fangdajing"></text>
+      <text>发现</text>
+    </view>
+    <view class="footer-photo">
+      <view class="camral">
+        <text class="iconfont icon-xiangji"></text></view>
+    </view>
+    <view class="footer-info">
+      <text class="iconfont icon-combinedshape"></text>
+      <text>我的</text>
+    </view>
+    <view class="footer-info">
+      <text class="iconfont icon-tuichu"></text>
+      <text>退出</text>
+    </view>
+  </view>
+</view>
